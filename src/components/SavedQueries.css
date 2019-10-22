@@ -1,0 +1,40 @@
+.SavedQueries {
+  width: 100%;
+}
+
+.SavedQueries h5 {
+  margin-bottom: 10px;
+  text-align: justify;
+  position: relative;
+}
+
+.SavedQueries h5 > span {
+  cursor: pointer;
+  font-size: 13px;
+  position: absolute;
+  right: 0;
+  text-decoration: underline;
+}
+
+.SavedQueries ul {
+  list-style: none;
+  overflow-y: auto;
+  padding-left: 0;
+  text-align: left;
+}
+
+.SavedQueries li {
+  background: #cc071e;
+  color: white;
+  display: flex;
+  font-size: 18px;
+  margin-bottom: 5px;
+  padding: 5px 10px;
+  position: relative;
+}
+
+.SavedQueries li > span {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+}

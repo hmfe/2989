@@ -1,0 +1,74 @@
+.App {
+  background-color: white;
+  color: #cc071e;
+  display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+  min-height: 80vh;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.App__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.App__header img {
+	max-width: 200px;
+	margin-right: 15px;
+	height: auto;
+}
+
+.App__question > button {
+	background-color: #f2a34c;
+  border: 2px solid #888;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+	font-weight: bold;
+  font-size: 20px;
+  margin: 0 auto;
+	text-align: left;
+	padding: 0 7px;
+	width: 135px;
+  height: 70px;
+}
+
+.App__question > button::after {
+  background: white;
+  content: '×';
+  display: flex;
+  font-size: 36px;
+	align-items: center;
+	justify-content: center;
+	padding: 5px 10px 10px;
+  width: 30px;
+  height: 35px;
+  border-radius: 50%;
+  position: relative;
+  left: 5px;
+}
+
+section {
+	margin: 10px 0;
+}
+
+@media only screen and (min-width: 500px) {
+  .App {
+    padding: 20px 0 0;
+  }
+
+  .App__header {
+    flex-direction: row;
+  }
+
+  .App__question > button {
+    width: 150px;
+  }
+}
