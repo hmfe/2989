@@ -35,3 +35,13 @@
 		width: 500px;
 	}
 }
+
+/*  Loading animation */
+
+.loading {
+  animation: blink 1s linear infinite;
+}
+
+@keyframes blink {  
+  50% { opacity: 0; }
+}

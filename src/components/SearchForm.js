@@ -14,6 +14,7 @@ const SearchForm = ({ suggestions }) => {
 	const [savedQueries, setSavedQueries] = useState([]);
 	const [randomDogImage, setRandomDogImage] = useState(null);
 	const [dogFetchError, setDogFetchError] = useState(null);
+	const [isLoading, setLoading] = useState(false);
 
 	/**
 	 * Takes a query string and saves it
@@ -134,16 +135,19 @@ const SearchForm = ({ suggestions }) => {
 
 
 	function fetchDog(breed) {
+		setLoading(true);
 		return fetch(`${DOG_BREED_URL}/${breed}/images/random`)
 			.then(response => {
 				return response.json();
 			})
 			.then(data => {
 				if (data.status === 'success') {
+					setLoading(false);
 					setInputVal('');
 					setRandomDogImage(data.message);
 					setDogFetchError(null);
 				} else {
+					setLoading(false);
 					setRandomDogImage(null);
 					setDogFetchError('🐶 Woof, either the suggestions haven\'t loaded, or that dog ran away :( ');
 				}
@@ -177,6 +181,7 @@ const SearchForm = ({ suggestions }) => {
 					clearSearchHistory={clearSearchHistory}
 				/>
 			)}
+			{isLoading && <p className="Search__loading loading">Loading...</p>}
 			{randomDogImage && <img className="Search__result" src={randomDogImage} alt={query} />}
 			{dogFetchError && <p>{dogFetchError}</p>}
 		</div>
