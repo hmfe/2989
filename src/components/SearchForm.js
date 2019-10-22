@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 import Suggestions from './Suggestions';
 import './SearchForm.css';
 import SavedQueries from './SavedQueries';
@@ -25,10 +26,14 @@ const SearchForm = ({ suggestions }) => {
 
 	function saveQuery(currentQuery) {
 		let queries = [...savedQueries];
+		let timeStamp = moment().format('YYYY-MM-DD, h:mm:ss a');
+		let newQuery = {};
 
 		if (queries.includes(currentQuery)) return;
 
-		queries.push(currentQuery);
+		newQuery.text = currentQuery;
+		newQuery.timeStamp = timeStamp;
+		queries.push(newQuery);
 		setSavedQueries(queries);
 	}
 

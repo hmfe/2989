@@ -13,8 +13,14 @@ const SavedQueries = ({ savedQueries, deleteQuery, clearSearchHistory }) => {
 				{savedQueries.map((query, i) => {
 					return (
 						<li key={i}>
-							{query}
-							<span onClick={() => deleteQuery(query)}>x</span>
+							{query.text}
+						<span className="SavedQueries__time-stamp">{query.timeStamp}</span>
+							<span
+								className="SavedQueries__delete"
+								onClick={() => deleteQuery(query)}
+							>
+								x
+							</span>
 						</li>
 					);
 				})}

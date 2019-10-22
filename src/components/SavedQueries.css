@@ -27,13 +27,20 @@
   background: #cc071e;
   color: white;
   display: flex;
+  align-items: center;
   font-size: 18px;
   margin-bottom: 5px;
   padding: 5px 10px;
   position: relative;
 }
 
-.SavedQueries li > span {
+.SavedQueries__time-stamp {
+  font-size: 12px;
+  position: absolute;
+  right: 35px;
+}
+
+.SavedQueries__delete {
   cursor: pointer;
   position: absolute;
   right: 10px;
