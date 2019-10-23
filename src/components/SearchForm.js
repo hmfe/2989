@@ -70,6 +70,7 @@ const SearchForm = ({ suggestions }) => {
 
 		// User pressed Enter or Return
 		if (e.keyCode === 13) {
+			if (e.target.value.length === 0) return; // return false if input val is empty
 			currentQuery = filteredSuggestions[activeSuggestion];
 			setInputVal(currentQuery);
 			setQuery(currentQuery);
@@ -140,8 +141,9 @@ const SearchForm = ({ suggestions }) => {
 
 
 	function fetchDog(breed) {
+		if (breed.length === 0) return;
 		setLoading(true);
-		return fetch(`${DOG_BREED_URL}/${breed}/images/random`)
+		return fetch(`${DOG_BREED_URL}/${breed.toLowerCase()}/images/random`)
 			.then(response => {
 				return response.json();
 			})
@@ -160,8 +162,8 @@ const SearchForm = ({ suggestions }) => {
 	}
 
 	useEffect(() => {
-		if (query.length === 0) return;
-		fetchDog(query.toLowerCase());
+		// if (query.length === 0) return;
+		fetchDog(query);
 	}, [query]);
 
 	return (
