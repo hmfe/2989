@@ -150,7 +150,6 @@ const SearchForm = ({ suggestions }) => {
 			.then(data => {
 				if (data.status === 'success') {
 					setLoading(false);
-					setInputVal('');
 					setRandomDogImage(data.message);
 					setDogFetchError(null);
 				} else {
