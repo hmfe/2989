@@ -47,7 +47,7 @@ const App = () => {
 				<button>Delete</button>
 			</section>
 
-			<section className="App__Question">
+			<section className="App__question">
 				<h3>Fetch a Random Dog</h3>
 				<SearchForm suggestions={suggestions} />
 			</section>
