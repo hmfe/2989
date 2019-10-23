@@ -42,16 +42,16 @@ const SearchForm = ({ suggestions }) => {
 		let regExpr = /[^a-zA-Z0-9-. ]/g;
 		let sanitizedInput = value.replace(regExpr, '');
 
-		setInputVal(sanitizedInput);
 		let filteredSuggestions = suggestions.filter(
 			suggestion =>
-				suggestion.toLowerCase().indexOf(inputVal.toLowerCase()) > -1
+				suggestion.toLowerCase().indexOf(sanitizedInput.toLowerCase()) > -1
 		);
 
 		if (filteredSuggestions.length > 0) {
 			setFilteredSuggestions(filteredSuggestions);
 			setShowSuggestions(true);
 		}
+		setInputVal(sanitizedInput);
 	}
 
 	function handleClick(e) {
